@@ -1,0 +1,173 @@
+$cor-principal: #ffcb00;
+$cor-secundaria: #333;
+$cor-vermelha: #f00;
+$font: Raleway, arial, verdana;
+$tamanho1: 36px;
+$tamanho2: 15px;
+
+@mixin padding {
+    padding: 10px;
+    box-sizing: border-box;
+
+}@mixin sombra($cor) {
+    box-shadow: 0 0 20px $cor;
+
+}
+@mixin margin {
+    margin: 15px;
+}
+
+/*css reset*/
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font: $tamanho2 $font;
+}
+body{
+    padding-top: 100px;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: $cor-principal;
+    @include padding;
+    @include sombra(#666);
+    & &-nav{
+        float: right;
+        ul{
+            list-style-type: none;
+            li{
+                display: inline-block;
+                margin: 25px;
+               
+                a{
+                    text-decoration: none;
+                    color: $cor-secundaria;
+                    font-weight: 700;
+                    transition: all 1s;
+                    &:hover{
+                        color: $cor-vermelha;
+                    }
+                }
+            }
+        }
+    }
+}
+.banner{
+    img{
+        width: 100%;
+    }
+}
+
+.main{
+    width: 1000px;
+    margin: 50px auto;
+
+    h1{
+        font-size: $tamanho1;
+        font-weight: 700px;
+        text-align: center;
+        margin: 30px;
+    }
+    h2{
+        font-size: $tamanho2;
+        font-weight: 700;
+        text-align: center;
+        @include margin;
+    }
+    & &-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 33.33%);
+    }
+    &-coluna{
+        @include sombra(#666);
+        @include padding;
+        @include margin; 
+        text-align: center;
+        border-radius: 5px;
+        img{
+            width: 100%;
+        }
+    }
+    & &-grid-detalhes{
+            display: grid;
+            grid-template-columns: 30% 70%;
+            .coluna-detalhe{
+                @include padding;
+            }
+
+    }
+    .img{
+        background-color: #f1f1f1;
+        @include sombra(#ccc);
+        @include padding();
+        width: 100%;
+        filter: grayscale(100);
+        transition: all 1s;
+        &:hover{
+            filter: grayscale(0);
+        }    
+        }
+        .valor{
+            text-align: center;
+            color: $cor-vermelha;
+            font-weight: 700px;
+            font-size: 1.2em;
+
+        }
+    & &-grid-infos{
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        margin: 30px 0;
+        .grid-coluna-infos{
+            text-align: center;
+            @include padding;
+            margin: 5px;
+            border: 1px solid #ccc;
+            small{
+                font-size: 0.8em;
+                color: #999;
+            }
+    }
+    }
+        
+        .btn{
+            background-color: $cor-principal;
+            color: $cor-secundaria;
+            text-decoration: none;
+            @include margin;
+            display: inline-block;
+            padding: 10px, 20px;
+            @include sombra(#ccc);
+            &:hover{
+                background-color: $cor-secundaria;
+                color: $cor-principal;
+            }
+        }
+    }
+
+.footer{
+    background-color: $cor-principal;
+    @include padding;
+    @include sombra(#666);
+    p{
+        text-align: center;
+    a{
+        background-color: $cor-secundaria;
+        color: $cor-principal;
+        text-decoration: none;
+        display: inline-block;
+        margin: 20px;
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
+        line-height: 35px;
+        transition: all 1s;
+        &:hover{
+            background-color: $cor-vermelha;
+        }
+    }
+  }
+}
